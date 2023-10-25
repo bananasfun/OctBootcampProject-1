@@ -24,10 +24,10 @@ public class PlayerController : MonoBehaviour
     {
         ballOffset = ballSpawnPoint.position - throwingArrow.position;
         
-        StartThrow();
+        //StartThrow();
     }
 
-    private void StartThrow()
+    public void StartThrow()
     {
         throwingArrowAnim.SetBool("Aiming", true);
         wasBallThrown = false;
