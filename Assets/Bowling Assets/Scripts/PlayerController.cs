@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
     private void TryThrowBall()
     {
         //Throw the ball
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space) && !wasBallThrown)
         {
             wasBallThrown = true;
             selectedBall.AddForce(throwingArrow.forward * throwForce, ForceMode.Impulse);
