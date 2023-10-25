@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         ballOffset = ballSpawnPoint.position - throwingArrow.position;
-        
+
         StartThrow();
     }
 
@@ -33,8 +33,8 @@ public class PlayerController : MonoBehaviour
         wasBallThrown = false;
 
         //Spawn A New Ball When Start Throw is called
-        int randomNumber = GetRandomNumber(0,balls.Length);
-        selectedBall = Instantiate(balls[randomNumber],ballSpawnPoint.position, Quaternion.identity);
+        int randomNumber = GetRandomNumber(0, balls.Length);
+        selectedBall = Instantiate(balls[randomNumber], ballSpawnPoint.position, Quaternion.identity);
 
     }
 
@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
     }
 
     private void MoveArrowWithConstraints()
-    {   
+    {
         //Checks if ball has not yet been thrown
         if (!wasBallThrown) //wasBallThrown == false
         {
@@ -78,7 +78,7 @@ public class PlayerController : MonoBehaviour
     private void TryThrowBall()
     {
         //Throw the ball
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             wasBallThrown = true;
             selectedBall.AddForce(throwingArrow.forward * throwForce, ForceMode.Impulse);
