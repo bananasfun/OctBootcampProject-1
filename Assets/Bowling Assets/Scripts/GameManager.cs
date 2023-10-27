@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void SetNextThrow()
-    {   
+    {
         CalculateFallenPins();
         //Get the ball to the start position for throwing
         playerController.StartThrow();
@@ -51,6 +51,14 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        Debug.Log("Total Fallen Pins " +  count);   
+        Debug.Log("Total Fallen Pins " + count);
+    }
+
+    public void ResetAllPins()
+    {
+        foreach (Pin pin in pins)
+        {
+            pin.ResetPin();
+        }
     }
 }
