@@ -23,11 +23,9 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         ballOffset = ballSpawnPoint.position - throwingArrow.position;
-
-        StartThrow();
     }
 
-    private void StartThrow()
+    public void StartThrow()
     {
         throwingArrowAnim.SetBool("Aiming", true);
         wasBallThrown = false;
@@ -69,7 +67,7 @@ public class PlayerController : MonoBehaviour
                 throwingArrow.position.z
                 );
             //Set Ball Position based on Throwing Direction Position
-            selectedBall.position = throwingArrow.position + ballOffset;
+            selectedBall.transform.position = throwingArrow.position + ballOffset;
         }
 
     }
@@ -78,7 +76,7 @@ public class PlayerController : MonoBehaviour
     private void TryThrowBall()
     {
         //Throw the ball
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !wasBallThrown)
         {
             wasBallThrown = true;
             selectedBall.AddForce(throwingArrow.forward * throwForce, ForceMode.Impulse);
@@ -86,3 +84,4 @@ public class PlayerController : MonoBehaviour
         }
     }
 }
+
